@@ -1,4 +1,4 @@
-# Planora - Sri Lankan Travel Companion
+# Planora
 
 A modern, responsive web application for intelligent travel planning in Sri Lanka using AI-powered features and real-time alerts.
 
@@ -61,3 +61,4 @@ MIT License
 ## Contact
 
 For questions or support, create an issue on GitHub.
+
