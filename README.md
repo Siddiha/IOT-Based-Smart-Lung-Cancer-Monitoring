@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Planora - Sri Lankan Travel Companion
 
 A modern, responsive web application for intelligent travel planning in Sri Lanka using AI-powered features and real-time alerts.
