@@ -60,11 +60,11 @@ export default function TourismWebsite() {
       <nav className="flex justify-between items-center px-16 py-4 border-b" style={{ backgroundColor: '#F2F2F2', borderColor: '#262e36' }}>
         <div className="flex items-center gap-3">
           {/* <div className="w-6 h-6 rounded" style={{ backgroundColor: '#102550' }}></div> */}
-
+          <img src="./logo.jpeg" alt="Planora Logo" className="w-10 h-10"/>
           <span className="font-bold text-base" style={{ color: '#102550' }}>Planora</span>
         </div>
 
-un
+
         <div className="flex gap-10 text-xs font-medium">
           <button onClick={() => scrollToSection('about')} style={{ color: '#102550' }} className="hover:opacity-70 bg-none border-none cursor-pointer font-medium">ABOUT US</button>
           <button onClick={() => scrollToSection('features')} style={{ color: '#102550' }} className="hover:opacity-70 bg-none border-none cursor-pointer font-medium">FEATURES</button>
