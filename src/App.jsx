@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowRight, Navigation, AlertCircle, Volume2, DollarSign, Wifi, Compass, Sparkles } from 'lucide-react';
+import React, { useState } from 'react'
+import { ArrowRight, Navigation, AlertCircle, Volume2, DollarSign, Wifi, Compass, Sparkles, Menu, X } from 'lucide-react';
 import dalada from './assets/Dalada.jpg';
 import galle from './assets/galle.jpg';
 import sigriya from './assets/Sigiriya.jpeg';
@@ -9,11 +9,16 @@ import pidur from './assets/pidurangala.jpg';
 
 
 export default function TourismWebsite() {
+  // ADDED: State to manage the open/close state of the mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    // ADDED: Close the menu automatically when a link is clicked
+    setIsMenuOpen(false);
   };
 
   const features = [
@@ -53,11 +58,11 @@ export default function TourismWebsite() {
   ];
 
   return (
-    <div className="text-gray-900 font-sans" style={{ backgroundColor: '#F2F2F2' }}>
+    <div className="text-gray-900 font-sans" style={{ backgroundColor: '#000000ff' }}>
       <style>{`
       `}</style>
       {/* Navigation */}
-      <nav className="flex justify-between items-center px-16 py-4 border-b" style={{ backgroundColor: '#F2F2F2', borderColor: '#262e36' }}>
+      <nav className="relative flex justify-between items-center px-4 md:16 py-4 border-b z-50" style={{ backgroundColor: '#F2F2F2', borderColor: '#262e36' }}>
         <div className="flex items-center gap-3">
           {/* <div className="w-6 h-6 rounded" style={{ backgroundColor: '#102550' }}></div> */}
           <img src="./logo.jpeg" alt="Planora Logo" className="w-10 h-10"/>
@@ -65,28 +70,57 @@ export default function TourismWebsite() {
         </div>
 
 
-        <div className="flex gap-10 text-xs font-medium">
+        <div className="hidden md:flex gap-10 text-xs font-medium">
           <button onClick={() => scrollToSection('about')} style={{ color: '#102550' }} className="hover:opacity-70 bg-none border-none cursor-pointer font-medium">ABOUT US</button>
           <button onClick={() => scrollToSection('features')} style={{ color: '#102550' }} className="hover:opacity-70 bg-none border-none cursor-pointer font-medium">FEATURES</button>
           <a href="#" style={{ color: '#102550' }} className="hover:opacity-70">UPGRADE</a>
           <a href="#" style={{ color: '#102550' }} className="hover:opacity-70">OUR APP</a>
         </div>
 
-        <button className="bg-white border-2 text-xs font-semibold rounded-lg hover:bg-gray-50 px-6 py-2" style={{ borderColor: '#102550', color: '#102550' }}>
+        <button className="hidden md:block bg-white border-2 text-xs font-semibold rounded-lg hover:bg-gray-50 px-6 py-2" style={{ borderColor: '#102550', color: '#102550' }}>
           TRY NOW
         </button>
+ 
+        {/* Mobile Menu Button */}
+        <button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          className="md:hidden z-50"
+          style={{ color: '#102550' }}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </nav>
+
+      {/* ADDED: Mobile Menu - Fullscreen overlay
+        1. This entire block is new.
+        2. 'md:hidden' ensures it only shows on mobile.
+        3. 'fixed inset-0' makes it a fullscreen overlay.
+        4. 'z-40' places it just below the nav bar (which is z-50).
+        5. It only renders if 'isMenuOpen' is true.
+      */}
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 z-40 flex flex-col items-center justify-center gap-8" style={{ backgroundColor: '#F2F2F2' }}>
+          <button onClick={() => scrollToSection('about')} className="text-2xl font-bold" style={{ color: '#102550' }}>ABOUT US</button>
+          <button onClick={() => scrollToSection('features')} className="text-2xl font-bold" style={{ color: '#102550' }}>FEATURES</button>
+          <a href="#" className="text-2xl font-bold" style={{ color: '#102550' }}>UPGRADE</a>
+          <a href="#" className="text-2xl font-bold" style={{ color: '#102550' }}>OUR APP</a>
+          <button className="bg-white border-2 text-lg font-semibold rounded-lg hover:bg-gray-50 px-8 py-3 mt-4" style={{ borderColor: '#102550', color: '#102550' }}>
+            TRY NOW
+          </button>
+        </div>
+      )}
+      
 
       {/* Hero Section */}
       <section className="relative min-h-screen overflow-hidden" style={{ backgroundColor: '#F2F2F2' }}>
 
         {/* Image Showcase - Professional Grid Layout */}
-        <div className="absolute right-12 top-1/2 transform -translate-y-1/2 pointer-events-none">
+        <div className="absolute right-2 top-90 md:right-12 md:top-1/2 transform -translate-y-1/2 pointer-events-none">
           <div className="grid grid-cols-2 gap-6 w-96">
             {/* Top Left - Large */}
             <div className="col-span-1 row-span-2">
               <div className="w-full h-80 rounded-2xl shadow-2xl overflow-hidden transform hover:shadow-3xl transition duration-300">
-                <img src={touristImages[0].src} alt={touristImages[0].alt} className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                <img src={touristImages[0].src} alt={touristImages[0].alt} className="w-full h-full object-cover hover:scale-105 transition duration-300 blur-sm md:blur-none" />
               </div>
             </div>
 
@@ -94,14 +128,14 @@ export default function TourismWebsite() {
             {/* Top Right */}
             <div>
               <div className="w-full h-40 rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300">
-                <img src={touristImages[1].src} alt={touristImages[1].alt} className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                <img src={touristImages[1].src} alt={touristImages[1].alt} className="w-full h-full object-cover hover:scale-105 transition duration-300 blur-sm md:blur-none" />
               </div>
             </div>
             
             {/* Middle Right */}
             <div>
               <div className="w-full h-40 rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300">
-                <img src={touristImages[2].src} alt={touristImages[2].alt} className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                <img src={touristImages[2].src} alt={touristImages[2].alt} className="w-full h-full object-cover hover:scale-105 transition duration-300 blur-sm md:blur-none" />
               </div>
             </div>
             
@@ -109,25 +143,25 @@ export default function TourismWebsite() {
             <div className="col-span-2">
               <div className="grid grid-cols-2 gap-6">
                 <div className="w-full h-36 rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300">
-                  <img src={touristImages[3].src} alt={touristImages[3].alt} className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <img src={touristImages[3].src} alt={touristImages[3].alt} className="w-full h-full object-cover hover:scale-105 transition duration-300 blur-sm md:blur-none" />
                 </div>
                 <div className="w-full h-36 rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition duration-300">
-                  <img src={touristImages[4].src} alt={touristImages[4].alt} className="w-full h-full object-cover hover:scale-105 transition duration-300" />
+                  <img src={touristImages[4].src} alt={touristImages[4].alt} className="w-full h-full object-cover hover:scale-105 transition duration-300 blur-sm md:blur-none" />
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="relative flex items-center px-16 py-32 max-w-7xl mx-auto h-screen z-10">
-          <div className="w-1/2">
-            <h1 className="text-7xl font-bold text-gray-900 leading-tight mb-8">
+        <div className="relative flex items-center justify-center text-center md:justify-start px-10 md:px-16 md:py-32 max-w-7xl mx-auto h-screen z-10">
+          <div className="w-full md:w-1/2 mx-auto md:mx-0">
+            <h1 className="text-7xl font-bold leading-tight mb-8" style={{ color: '#102550'}}>
               The Leading<br />Sri Lankan Travel<br />Companion
             </h1>
-            <p className="text-base text-gray-700 mb-8">
+            <p className="text-base mb-8" style={{ color: '#102550'}}>
               Intelligent Travel Planning for Sri Lanka
             </p>
-            <p className="text-gray-600 mb-12 text-sm leading-relaxed max-w-md">
+            <p className="mb-12 text-sm leading-relaxed max-w-md" style={{ color: '#102550'}}>
               Planora uses AI to create personalized itineraries, smart cultural alerts, and immersive experiences tailored to Sri Lanka's unique heritage and climate.
             </p>
             <div className="flex gap-3">
