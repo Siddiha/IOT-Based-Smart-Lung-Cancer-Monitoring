@@ -186,7 +186,7 @@ export default function HealthMonitoringWebsite() {
       <section id="components" className="relative py-24 px-6 md:px-16 overflow-hidden" style={{ backgroundColor: '#e6f2ff' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0066cc' }}>System Architecture</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>System Architecture</h2>
             <div className="component-line"></div>
             <p className="text-lg" style={{ color: '#4a90e2' }}>Three-Layer Solution for Complete Patient Care</p>
           </div>
