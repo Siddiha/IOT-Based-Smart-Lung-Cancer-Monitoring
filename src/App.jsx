@@ -83,22 +83,22 @@ export default function HealthMonitoringWebsite() {
       `}</style>
 
       {/* Navigation */}
-      <nav className="relative flex justify-between items-center px-4 md:px-16 py-5 border-b z-50" style={{ backgroundColor: '#f8f9fa', borderColor: '#e0e0e0' }}>
+      <nav className="relative flex justify-between items-center px-4 md:px-16 py-5 border-b z-50" style={{ backgroundColor: '#345F72', borderColor: '#e0e0e0' }}>
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded" style={{ backgroundColor: '#0066cc' }}>
+          <div className="w-10 h-10 rounded" style={{ backgroundColor: '#40E0D0' }}>
             <div className="w-full h-full flex items-center justify-center font-bold text-white text-lg">A</div>
           </div>
-          <span className="font-bold text-lg" style={{ color: '#0066cc' }}>Airea</span>
+          <span className="font-bold text-lg" style={{ color: '#EAE0C8' }}>Airea</span>
         </div>
 
         <div className="hidden md:flex gap-12 text-sm font-semibold">
-          <button onClick={() => scrollToSection('about')} style={{ color: '#333333' }} className="hover:text-blue-600 transition bg-none border-none cursor-pointer">FEATURES</button>
-          <button onClick={() => scrollToSection('components')} style={{ color: '#333333' }} className="hover:text-blue-600 transition bg-none border-none cursor-pointer">SYSTEM</button>
-          <button onClick={() => scrollToSection('features')} style={{ color: '#333333' }} className="hover:text-blue-600 transition bg-none border-none cursor-pointer">HOW IT WORKS</button>
-          <a href="#" style={{ color: '#333333' }} className="hover:text-blue-600 transition">CONTACT</a>
+          <button onClick={() => scrollToSection('about')} style={{ color: '#EAE0C8' }} className="hover:text-blue-600 transition bg-none border-none cursor-pointer">FEATURES</button>
+          <button onClick={() => scrollToSection('components')} style={{ color: '#EAE0C8' }} className="hover:text-blue-600 transition bg-none border-none cursor-pointer">SYSTEM</button>
+          <button onClick={() => scrollToSection('features')} style={{ color: '#EAE0C8' }} className="hover:text-blue-600 transition bg-none border-none cursor-pointer">HOW IT WORKS</button>
+          <a href="#" style={{ color: '#EAE0C8' }} className="hover:text-blue-600 transition">CONTACT</a>
         </div>
 
-        <button className="hidden md:block text-white px-8 py-2 text-sm font-semibold rounded-full hover:opacity-90 transition" style={{ backgroundColor: '#0066cc' }}>
+        <button className="hidden md:block text-white px-8 py-2 text-sm font-semibold rounded-full hover:opacity-90 transition" style={{ backgroundColor: '#40E0D0' }}>
           GET STARTED
         </button>
  
@@ -127,48 +127,48 @@ export default function HealthMonitoringWebsite() {
       
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: '#ffffff' }}>
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: '#345F72' }}>
         {/* Background gradient overlay */}
         <div className="absolute inset-0 opacity-5" style={{ background: 'radial-gradient(circle at top right, #0066cc, transparent), radial-gradient(circle at bottom left, #00aa66, transparent)' }}></div>
         
         <div className="relative flex items-center justify-center text-center px-6 md:px-16 max-w-7xl mx-auto w-full z-10">
           <div className="w-full">
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6" style={{ color: '#000000' }}>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6" style={{ color: '#E2DFD2' }}>
               Airea –<br />
-              <span style={{ color: '#0066cc' }}>Smart Lung Cancer</span><br />
-              <span style={{ color: '#0066cc' }}>Monitoring System</span>
+              <span style={{ color: '#EAE0C8' }}>Smart Lung Cancer</span><br />
+              <span style={{ color: '#EAE0C8' }}>Monitoring System</span>
             </h1>
-            <p className="text-xl mb-8" style={{ color: '#333333' }}>
+            <p className="text-xl mb-8" style={{ color: '#EAE0C8' }}>
               A Cutting-Edge Solution for Patient Health & Well-being
             </p>
-            <p className="mb-12 text-base leading-relaxed max-w-2xl mx-auto" style={{ color: '#666666' }}>
+            <p className="mb-12 text-base leading-relaxed max-w-2xl mx-auto" style={{ color: '#EAE0C8' }}>
               Advanced remote monitoring, intelligent alerts, and comprehensive health management for lung cancer patients with secure data integration and AI-powered support.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <button className="text-white px-8 py-3 text-sm font-semibold rounded-full flex items-center justify-center hover:opacity-90 transition" style={{ backgroundColor: '#0066cc' }}>
+              <button className="text-white px-8 py-3 text-sm font-semibold rounded-full flex items-center justify-center hover:opacity-90 transition" style={{ backgroundColor: '#40E0D0' }}>
                 GET STARTED NOW
                 <ArrowRight size={16} className="ml-2" />
               </button>
-              <button className="text-white border-2 px-8 py-3 text-sm font-semibold rounded-full hover:bg-gray-100 transition" style={{ borderColor: '#0066cc', color: '#0066cc' }}>
+              <button className="text-white border-2 px-8 py-3 text-sm font-semibold rounded-full hover:bg-gray-100 transition" style={{ borderColor: '#40E0D0', color: '#E2DFD2' }}>
                 LEARN HOW IT WORKS
               </button>
             </div>
 
             {/* Live Monitoring Stats */}
             <div className="mt-16">
-              <p className="text-gray-600 text-sm mb-6 flex items-center justify-center gap-2">
-                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#00cc99' }}></span>
+              <p className="text-gray-600 text-sm mb-6 flex items-center justify-center gap-2" style={{ color: '#E2DFD2' }}>
+                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#00cc99', color: '#E2DFD2' }}></span>
                 Live Monitoring Stats
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                 {stats.map((stat, idx) => (
-                  <div key={idx} className="bg-white rounded-lg p-6 border shadow-md hover:shadow-lg transition" style={{ borderColor: '#e0e0e0' }}>
+                  <div key={idx} className="bg-white rounded-lg p-6 border shadow-md hover:shadow-lg transition" style={{ borderColor: '#E2DFD2', backgroundColor: '#40E0D0'}}>
                     <div className="flex items-center gap-2 mb-3" style={{ color: '#ff9900' }}>
                       {stat.icon}
                     </div>
                     <p className="text-gray-600 text-xs mb-2">{stat.label}</p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-2xl font-bold" style={{ color: '#0066cc' }}>{stat.value}</span>
+                      <span className="text-2xl font-bold" style={{ color: '#345F72' }}>{stat.value}</span>
                       <span className="text-sm text-gray-500">{stat.unit}</span>
                     </div>
                     <div className="mt-3 h-1 bg-gray-200 rounded-full overflow-hidden">
